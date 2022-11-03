@@ -1,5 +1,7 @@
 const getPosts = async () => {
-  const getPosts = await fetch(`https://jsonplaceholder.typicode.com/posts/`);
+  const getPosts = await fetch(`https://jsonplaceholder.typicode.com/posts/`, {
+    next: { revalidate: 10 },
+  });
   const postData = await getPosts.json();
   return postData;
 };
